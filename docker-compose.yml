@@ -1,0 +1,40 @@
+version: '3'
+services:
+  ms-sql-server:
+    container_name: SqlServerLivraria
+    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "123456Adm!"
+    hostname: sqlserver
+    ports:
+      - "11433:1433"
+    expose:
+      - 1433
+    networks:
+      - livraria_net
+
+  api:
+    container_name: APILivraria
+    depends_on:
+      - ms-sql-server
+    build: .\livrariadoluiz-back 
+    ports:
+      - "5001:5001"
+    networks:
+      - livraria_net
+
+  portal:
+    container_name: PortalLivraria
+    depends_on:
+      - ms-sql-server
+      - api
+    build: .\livrariadoluiz-front
+    ports:
+      - "8091:80"
+    networks:
+      - livraria_net
+
+
+networks:
+  livraria_net:
