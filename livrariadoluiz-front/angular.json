@@ -5,7 +5,17 @@
   "projects": {
     "livrariadoluiz-front": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "standalone": false
+        },
+        "@schematics/angular:directive": {
+          "standalone": false
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -98,6 +108,6 @@
     }
   },
   "cli": {
-    "analytics": "85d36b56-77fd-45a7-a9c6-09d78b38c579"
+    "analytics": "1abf023e-9368-49ba-a9dd-284e9314dbfe"
   }
 }
