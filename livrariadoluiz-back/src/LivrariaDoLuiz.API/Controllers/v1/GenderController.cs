@@ -42,18 +42,19 @@ public class GenderController(ILogger<IGenderAppService> logger,  IGenderAppServ
     /// <summary>
     /// Pesquisa um Gênero através do Id
     /// </summary>
+    /// <param name="Id"></param>
     /// <returns></returns>    
     [HttpGet("{id}")]    
     [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(Response))]    
     [SwaggerResponse(StatusCodes.Status400BadRequest, Type = typeof(Response))]   
     [SwaggerResponse(StatusCodes.Status500InternalServerError)]    
-    public async Task<IActionResult> GetById(Guid id)
+    public async Task<IActionResult> GetById(Guid Id)
     {           
         ResponseBase = new();
         try 
         {
             _logger.LogInformation("||GenderController||GetById");
-            return Response(await _genderAppService.GetAsync(id));
+            return Response(await _genderAppService.GetAsync(Id));
         }
         catch (Exception ex)
         {
@@ -66,8 +67,9 @@ public class GenderController(ILogger<IGenderAppService> logger,  IGenderAppServ
     /// <summary>
     /// Salva um novo Gênero na base de dados
     /// </summary>
+    /// <param name="req"></param>
     /// <returns></returns>    
-    [HttpPost]    
+    [HttpPost("add")]    
     [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(Response))]    
     [SwaggerResponse(StatusCodes.Status400BadRequest, Type = typeof(Response))]    
     [SwaggerResponse(StatusCodes.Status500InternalServerError)]    
@@ -90,8 +92,9 @@ public class GenderController(ILogger<IGenderAppService> logger,  IGenderAppServ
     /// <summary>
     /// Atualiza um Gênero na base de dados
     /// </summary>
-    /// <returns></returns>    
-    [HttpPut]    
+    /// <param name="req"></param>
+    /// <returns></returns>
+    [HttpPut("update")]    
     [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(Response))]    
     [SwaggerResponse(StatusCodes.Status400BadRequest, Type = typeof(Response))]    
     [SwaggerResponse(StatusCodes.Status500InternalServerError)]    
@@ -114,8 +117,9 @@ public class GenderController(ILogger<IGenderAppService> logger,  IGenderAppServ
     /// <summary>
     /// Exclui um Gênero da base de dados
     /// </summary>
-    /// <returns></returns>    
-    [HttpDelete]    
+    /// <param name="Id"></param>
+    /// <returns></returns>  
+    [HttpDelete("delete/{id}")]    
     [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(Response))]    
     [SwaggerResponse(StatusCodes.Status400BadRequest, Type = typeof(Response))]    
     [SwaggerResponse(StatusCodes.Status500InternalServerError)]    

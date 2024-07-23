@@ -153,7 +153,7 @@ public class AuthorAppService(IMapper Mapper, IAuthorService AuthorService) : IA
                 Message = CommonNotifications.DataDeletedSuccessfuly
             }); 
         }
-        catch
+        catch 
         {
             await _authorService.RollbackTransactionAsync();
             response.AddNotifications(new Notification() 

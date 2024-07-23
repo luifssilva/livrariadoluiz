@@ -1,1 +1,12 @@
+<mat-toolbar>
+    <span>Livraria Do Luiz</span>
+</mat-toolbar>
+
+<button mat-button [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="goTo('book')">Livros</button>
+  <button mat-menu-item (click)="goTo('author')">Autores</button>
+  <button mat-menu-item (click)="goTo('gender')">Genêro</button>
+</mat-menu>
+
 <router-outlet />

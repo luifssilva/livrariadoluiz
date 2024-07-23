@@ -24,16 +24,16 @@ services:
     networks:
       - livraria_net
 
-  portal:
-    container_name: PortalLivraria
-    depends_on:
-      - ms-sql-server
-      - api
-    build: .\livrariadoluiz-front
-    ports:
-      - "8091:80"
-    networks:
-      - livraria_net
+  # portal:
+  #   container_name: PortalLivraria
+  #   depends_on:
+  #     - ms-sql-server
+  #     - api
+  #   build: .\livrariadoluiz-front
+  #   ports:
+  #     - "8091:80"
+  #   networks:
+  #     - livraria_net
 
 
 networks:

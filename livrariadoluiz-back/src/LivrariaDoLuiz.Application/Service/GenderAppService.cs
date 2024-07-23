@@ -18,7 +18,7 @@ public class GenderAppService(IMapper Mapper, IGenderService GenderService) : IG
         try 
         {
             response = new();
-            var genders = _mapper.Map<IEnumerable<AuthorResponse>>(await _genderService.GetAsync());
+            var genders = _mapper.Map<IEnumerable<GenderResponse>>(await _genderService.GetAsync());
             if (genders.Any())
                 response.AddValue(genders);
             else

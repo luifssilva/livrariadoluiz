@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+
+import { UIModule } from './shared/modules/UIModule';
 import { AuthorModule } from './author/author.module';
 import { GenderModule } from './gender/gender.module';
 
@@ -16,12 +18,14 @@ import { GenderModule } from './gender/gender.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
+    HttpClientModule,   
+    UIModule,
     AuthorModule,
-    GenderModule
+    GenderModule     
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })

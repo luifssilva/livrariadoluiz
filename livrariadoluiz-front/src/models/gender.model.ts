@@ -1,4 +1,4 @@
-export interface AuthorModel {
+export interface GenderModel {
     id: string,
     createAt?: Date,
     name: string

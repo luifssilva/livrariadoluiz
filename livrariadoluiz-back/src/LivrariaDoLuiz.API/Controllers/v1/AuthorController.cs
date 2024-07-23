@@ -42,18 +42,19 @@ public class AuthorController(ILogger<IAuthorAppService> logger,  IAuthorAppServ
     /// <summary>
     /// Pesquisa um Autor através do Id
     /// </summary>
+    /// <param name="Id"></param>
     /// <returns></returns>    
     [HttpGet("{id}")]    
     [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(Response))]    
     [SwaggerResponse(StatusCodes.Status400BadRequest, Type = typeof(Response))]   
     [SwaggerResponse(StatusCodes.Status500InternalServerError)]    
-    public async Task<IActionResult> GetById(Guid id)
+    public async Task<IActionResult> GetById(Guid Id)
     {           
         ResponseBase = new();
         try 
         {
             _logger.LogInformation("||AuthorController||GetById");
-            return Response(await _authorAppService.GetAsync(id));
+            return Response(await _authorAppService.GetAsync(Id));
         }
         catch (Exception ex)
         {
@@ -65,9 +66,10 @@ public class AuthorController(ILogger<IAuthorAppService> logger,  IAuthorAppServ
 
     /// <summary>
     /// Salva um novo Autor na base de dados
-    /// </summary>
+    /// </summary>    
+    /// <param name="req"></param>
     /// <returns></returns>    
-    [HttpPost]    
+    [HttpPost("add")]    
     [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(Response))]    
     [SwaggerResponse(StatusCodes.Status400BadRequest, Type = typeof(Response))]    
     [SwaggerResponse(StatusCodes.Status500InternalServerError)]    
@@ -91,7 +93,7 @@ public class AuthorController(ILogger<IAuthorAppService> logger,  IAuthorAppServ
     /// Atualiza um Autor na base de dados
     /// </summary>
     /// <returns></returns>    
-    [HttpPut]    
+    [HttpPut("update")]    
     [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(Response))]    
     [SwaggerResponse(StatusCodes.Status400BadRequest, Type = typeof(Response))]    
     [SwaggerResponse(StatusCodes.Status500InternalServerError)]    
@@ -114,8 +116,9 @@ public class AuthorController(ILogger<IAuthorAppService> logger,  IAuthorAppServ
     /// <summary>
     /// Exclui um Autor da base de dados
     /// </summary>
-    /// <returns></returns>    
-    [HttpDelete]    
+    /// <param name="Id"></param>
+    /// <returns></returns>   
+    [HttpDelete("delete/{id}")]    
     [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(Response))]    
     [SwaggerResponse(StatusCodes.Status400BadRequest, Type = typeof(Response))]    
     [SwaggerResponse(StatusCodes.Status500InternalServerError)]    
