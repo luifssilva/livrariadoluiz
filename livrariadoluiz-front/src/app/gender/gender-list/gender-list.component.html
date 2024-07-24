@@ -4,28 +4,28 @@
 
 <br />
 <div class="alinhamento-centro">
-    <button type="button" class="btn btn-link" (click)="add()">Adicionar</button>
+  <button type="button" class="btn btn-link" (click)="add()">Adicionar</button>
 </div>
 <br />
 
 <table class="mat-elevation-z8">
-    <thead>
-        <th>
-            Nome
-        </th>
-        <th>
-            Ações
-        </th>        
-    </thead>
-    <tbody>
-        <tr *ngFor="let gender of genders">
-            <td class="alinhamento-centro">
-                {{ gender.name }}
-            </td>
-            <td class="alinhamento-centro">
-                <button type="button" class="btn btn-link" (click)="edit(gender.id)">Editar</button>&nbsp;&nbsp;
-                <button type="button" class="btn btn-link" (click)="remove(gender.id)">Excluir</button>
-            </td>
-        </tr>
-    </tbody>
+  <thead>
+    <th>Nome</th>
+    <th>Ações</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let gender of genders">
+      <td class="alinhamento-centro">
+        {{ gender.name }}
+      </td>
+      <td class="alinhamento-centro">
+        <button type="button" class="btn btn-link" (click)="edit(gender.id)">
+          Editar</button
+        >&nbsp;&nbsp;
+        <button type="button" class="btn btn-link" (click)="remove(gender.id)">
+          Excluir
+        </button>
+      </td>
+    </tr>
+  </tbody>
 </table>

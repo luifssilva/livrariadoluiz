@@ -27,7 +27,7 @@ export class GenderListComponent implements OnInit, OnDestroy {
   } 
   
   add() {
-    this.router.navigate(['author', 'add']);
+    this.router.navigate(['gender', 'add']);
   }
 
   getGenders() {

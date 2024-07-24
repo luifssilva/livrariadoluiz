@@ -8,6 +8,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { UIModule } from './shared/modules/UIModule';
 import { AuthorModule } from './author/author.module';
 import { GenderModule } from './gender/gender.module';
+import { BookModule } from './book/book.module';
 
 
 
@@ -21,7 +22,8 @@ import { GenderModule } from './gender/gender.module';
     HttpClientModule,   
     UIModule,
     AuthorModule,
-    GenderModule     
+    GenderModule,
+    BookModule     
   ],
   providers: [
     provideClientHydration(),

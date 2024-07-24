@@ -1,0 +1,81 @@
+<br />
+
+<h3 class="alinhamento-centro">Livros - Editar</h3>
+
+<div class="formulario">
+  <table class="mat-elevation-z8">
+    <thead>
+      <th class="alinhamento-esquerda">Livro</th>
+    </thead>
+
+    <body>
+      <tr class="alinhamento-esquerda">
+        <td>Nome:</td>
+        <td>
+          <input type="text" name="name" [(ngModel)]="bookModel.name" />&nbsp;
+        </td>
+      </tr>
+      <tr class="alinhamento-esquerda">
+        <td>Páginas:</td>
+        <td>
+          <input type="text" name="name" [(ngModel)]="bookModel.pages" />&nbsp;
+        </td>
+      </tr>
+      <tr class="alinhamento-esquerda">
+        <td>Edição:</td>
+        <td>
+          <input
+            type="text"
+            name="name"
+            [(ngModel)]="bookModel.edition"
+          />&nbsp;
+        </td>
+      </tr>
+      <tr class="alinhamento-esquerda">
+        <td>ISBN:</td>
+        <td>
+          <input type="text" name="name" [(ngModel)]="bookModel.isbn" />&nbsp;
+        </td>
+      </tr>
+      <tr class="alinhamento-esquerda">
+        <td>Idioma:</td>
+        <td>
+          <input
+            type="text"
+            name="name"
+            [(ngModel)]="bookModel.language"
+          />&nbsp;
+        </td>
+      </tr>
+      <tr class="alinhamento-esquerda">
+        <td>Autor:</td>
+        <td>
+          <select name="autores" [(ngModel)]="bookModel.authorId">
+            <option *ngFor="let author of authors" [ngValue]="author.id">
+              {{ author.name }}
+            </option>
+          </select>
+        </td>
+      </tr>
+      <tr class="alinhamento-esquerda">
+        <td>Gênero:</td>
+        <td>
+          <select name="generos" [(ngModel)]="bookModel.genderId" selected="selected" >
+            <option *ngFor="let gender of genders" [value]="gender.id">
+              {{ gender.name }}
+            </option>
+          </select>
+        </td>
+      </tr>
+    </body>
+  </table>
+</div>
+<br />
+<div class="alinhamento-centro">
+  <input
+    type="button"
+    name="buttonUpdate"
+    (click)="update()"
+    value="Atualizar"
+  />
+</div>

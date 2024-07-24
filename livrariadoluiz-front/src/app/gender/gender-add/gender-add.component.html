@@ -1,1 +1,23 @@
-<p>gender-add works!</p>
+<br />
+
+<h3 class="alinhamento-centro">Gênero - Adicionar</h3>
+
+<div class="formulario">
+  <table class="mat-elevation-z8">
+    <thead>
+      <th class="alinhamento-esquerda">Nome:</th>
+    </thead>
+    <body>
+      <tr class="alinhamento-esquerda">
+        <input type="text" name="name" [(ngModel)]="genderModel.name" />&nbsp;
+        
+        <input
+          type="button"
+          name="buttonAdd"
+          (click)="add()"
+          value="Adicionar"
+        />
+      </tr>
+    </body>
+  </table>
+</div>

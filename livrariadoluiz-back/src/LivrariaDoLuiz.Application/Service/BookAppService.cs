@@ -105,11 +105,11 @@ public class BookAppService(IMapper Mapper, IBookService BookService) : IBookApp
             response = new();
             var book = _mapper.Map<Book>(req);
 
-            var bookOnDB = await _bookService.GetAsync(book.Id);
-            book.CreatedAt = bookOnDB!.CreatedAt;
-            
+            var bookOnDB = await _bookService.GetBookAsync(book.Id);
+            book.CreatedAt = bookOnDB!.CreatedAt;           
+                        
             await _bookService.EditAsync(book);
-
+            
             await _bookService.BeginTransactionAsync();
             await _bookService.SaveAsync();
             await _bookService.CommitTransactionAsync();
